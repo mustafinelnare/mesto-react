@@ -23,7 +23,7 @@
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify({ name: profileInfo.name, about: profileInfo.job })
+      body: JSON.stringify({ name: profileInfo.name, about: profileInfo.about })
     })
     .then(this._getResponseData);
   }
@@ -32,7 +32,7 @@
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify({ avatar: profileAvatar.linkAvatar })
+      body: JSON.stringify({ avatar: profileAvatar.avatar })
     })
     .then(this._getResponseData);
   }
@@ -54,21 +54,31 @@
     .then(this._getResponseData);
   }
 
-  addLike(cardId) {
+  changeLikeCardStatus(cardId, isLiked) {
+    const method = isLiked ? 'PUT' : 'DELETE';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
-      method: 'PUT',
+      method: method,
     })
     .then(this._getResponseData);
   }
 
-  deleteLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      headers: this._headers,
-      method: 'DELETE',
-    })
-    .then(this._getResponseData);
-  }
+//   addLike(cardId) {
+//     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+//       headers: this._headers,
+//       method: 'PUT',
+//     })
+//     .then(this._getResponseData);
+//   }
+
+//   deleteLike(cardId) {
+//     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+//       headers: this._headers,
+//       method: 'DELETE',
+//     })
+//     .then(this._getResponseData);
+//   }
+
  }
 
  const api = new Api({
