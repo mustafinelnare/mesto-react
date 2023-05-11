@@ -2,6 +2,7 @@
   width: auto;
   max-width: 75vw;
   max-height: 75vh;
+  background: transparent;
 }
 
 @media screen and (max-width: 505px) {
