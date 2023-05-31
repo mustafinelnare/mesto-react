@@ -10,6 +10,7 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import api from "../utils/Api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
